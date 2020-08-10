@@ -1,9 +1,39 @@
-﻿namespace WiredBrainCoffee.CustomersApp.Model
+﻿using WiredBrainCoffee.CustomersApp.Base;
+
+namespace WiredBrainCoffee.CustomersApp.Model
 {
-    public class Customer
+    public class Customer : Observable
     {
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public bool IsDeveloper { get; set; }
+        private string firstname;
+        private string lastname;
+        private bool isDeveloper;
+
+        public string Firstname
+        {
+            get => firstname;
+            set
+            {
+                firstname = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Lastname
+        {
+            get => lastname;
+            set
+            {
+                lastname = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool IsDeveloper
+        {
+            get => isDeveloper;
+            set
+            {
+                isDeveloper = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }
