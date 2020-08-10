@@ -57,5 +57,35 @@ namespace WiredBrainCoffee.CustomersApp
             Grid.SetColumn(customerListGrid, newColumn);
             moveSymbolIcon.Symbol = newColumn == 0 ? Symbol.Forward : Symbol.Back;
         }
+
+        private void CustomerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var customer = customerListView.SelectedItem as Customer;
+
+            txtFirstname.Text = customer?.Firstname??"";
+            txtLastname.Text = customer?.Lastname??"";
+            chkIsDeveloper.IsChecked = customer?.IsDeveloper ?? false;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateCustomer();
+        }
+
+        private void CheckBox_IsCheckedChanged(object sender, RoutedEventArgs e)
+        {
+            UpdateCustomer();
+        }
+
+        private void UpdateCustomer()
+        {
+            var customer = customerListView.SelectedItem as Customer;
+            if(customer != null)
+            {
+                customer.Firstname = txtFirstname.Text;
+                customer.Lastname = txtLastname.Text;
+                customer.IsDeveloper = chkIsDeveloper.IsChecked.GetValueOrDefault();
+            }
+        }
     }
 }

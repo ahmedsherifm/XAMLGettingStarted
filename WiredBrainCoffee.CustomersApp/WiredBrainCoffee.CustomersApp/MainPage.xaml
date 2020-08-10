@@ -86,14 +86,28 @@
             <ListView
                 x:Name="customerListView"
                 Grid.Row="1"
-                DisplayMemberPath="Firstname" />
+                DisplayMemberPath="Firstname"
+                SelectionChanged="CustomerListView_SelectionChanged" />
         </Grid>
 
         <!--  Customer Details  -->
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox Margin="10" Header="Firstname" />
-            <TextBox Margin="10" Header="Lastname" />
-            <CheckBox Margin="10" Content="Is Developer" />
+            <TextBox
+                x:Name="txtFirstname"
+                Margin="10"
+                Header="Firstname" 
+                TextChanged="TextBox_TextChanged"/>
+            <TextBox
+                x:Name="txtLastname"
+                Margin="10"
+                Header="Lastname"
+                TextChanged="TextBox_TextChanged"/>
+            <CheckBox
+                x:Name="chkIsDeveloper"
+                Margin="10"
+                Content="Is Developer" 
+                Checked="CheckBox_IsCheckedChanged"
+                Unchecked="CheckBox_IsCheckedChanged"/>
         </StackPanel>
 
 
