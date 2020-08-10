@@ -96,12 +96,8 @@
         <controls:CustomerDetailsControl
             x:Name="customerDetailsControl"
             Grid.Row="1"
-            Grid.Column="1">
-            <model:Customer
-                Firstname="Ahmed"
-                IsDeveloper="True"
-                Lastname="Mohamed" />
-        </controls:CustomerDetailsControl>
+            Grid.Column="1"
+            Customer="Ahmed, Sherif, true" />
 
     </Grid>
 </Page>
