@@ -83,11 +83,10 @@
                 </Button>
             </StackPanel>
 
-            <ListView Grid.Row="1">
-                <ListViewItem>Thomas</ListViewItem>
-                <ListViewItem>Julia</ListViewItem>
-                <ListViewItem>Anna</ListViewItem>
-            </ListView>
+            <ListView
+                x:Name="customerListView"
+                Grid.Row="1"
+                DisplayMemberPath="Firstname" />
         </Grid>
 
         <!--  Customer Details  -->
