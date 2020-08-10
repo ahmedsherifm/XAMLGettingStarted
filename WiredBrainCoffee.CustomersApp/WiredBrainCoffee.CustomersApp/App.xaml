@@ -4,4 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WiredBrainCoffee.CustomersApp">
 
+    <Application.Resources>
+        <x:String x:Key="applicationTitle">Coffee Customers</x:String>
+        <SolidColorBrush x:Key="customerListBackgroundBrush" Color="#EEEEEE" />
+    </Application.Resources>
+
 </Application>

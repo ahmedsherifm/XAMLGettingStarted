@@ -11,18 +11,6 @@
     d:DesignWidth="600"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-    <Page.Resources>
-        <model:Customer
-            x:Key="customerAnna"
-            Firstname="Anna"
-            IsDeveloper="True"
-            Lastname=".NET Developer" />
-        <model:Customer
-            x:Key="customerThomas"
-            Firstname="Thomas"
-            IsDeveloper="True"
-            Lastname="XAML Developer" />
-    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -50,7 +38,7 @@
                 FontSize="30"
                 FontWeight="ExtraBold"
                 Foreground="White"
-                Text="Coffee Customers" />
+                Text="{StaticResource applicationTitle}" />
             <TextBlock
                 Margin="0,0,0,25"
                 VerticalAlignment="Bottom"
@@ -62,7 +50,7 @@
         <Grid
             x:Name="customerListGrid"
             Grid.Row="1"
-            Background="#EEEEEE">
+            Background="{StaticResource customerListBackgroundBrush}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
@@ -108,8 +96,7 @@
         <controls:CustomerDetailsControl
             x:Name="customerDetailsControl"
             Grid.Row="1"
-            Grid.Column="1"
-            Customer="{StaticResource customerThomas}" />
+            Grid.Column="1" />
 
     </Grid>
 </Page>
