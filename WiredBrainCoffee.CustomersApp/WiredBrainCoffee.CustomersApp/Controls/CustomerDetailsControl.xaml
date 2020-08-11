@@ -5,27 +5,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WiredBrainCoffee.CustomersApp.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="root"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
     <StackPanel>
         <TextBox
-            x:Name="txtFirstname"
             Margin="10"
             Header="Firstname"
-            TextChanged="TextBox_TextChanged" />
+            Text="{Binding ElementName=root, Path=Customer.Firstname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
-            x:Name="txtLastname"
             Margin="10"
             Header="Lastname"
-            TextChanged="TextBox_TextChanged" />
+            Text="{Binding ElementName=root, Path=Customer.Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <CheckBox
-            x:Name="chkIsDeveloper"
             Margin="10"
-            Checked="CheckBox_IsCheckedChanged"
             Content="Is Developer"
-            Unchecked="CheckBox_IsCheckedChanged" />
+            IsChecked="{Binding ElementName=root, Path=Customer.IsDeveloper, Mode=TwoWay}" />
     </StackPanel>
 
 </UserControl>
