@@ -14,6 +14,7 @@ namespace WiredBrainCoffee.CustomersApp
 
         public MainPage()
         {
+            
             this.InitializeComponent();
             Loaded += MainPage_Loaded;
             App.Current.Suspending += Current_Suspending;
@@ -64,12 +65,6 @@ namespace WiredBrainCoffee.CustomersApp
 
             Grid.SetColumn(customerListGrid, newColumn);
             moveSymbolIcon.Symbol = newColumn == 0 ? Symbol.Forward : Symbol.Back;
-        }
-
-        private void CustomerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var customer = customerListView.SelectedItem as Customer;
-            customerDetailsControl.Customer = customer;
         }
 
         private void ButtonToggleTheme_Click(object sender, RoutedEventArgs e)

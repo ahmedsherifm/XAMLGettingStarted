@@ -96,15 +96,14 @@
             <ListView
                 x:Name="customerListView"
                 Grid.Row="1"
-                DisplayMemberPath="Firstname"
-                SelectionChanged="CustomerListView_SelectionChanged" />
+                DisplayMemberPath="Firstname" />
         </Grid>
 
         <!--  Customer Details  -->
         <controls:CustomerDetailsControl
-            x:Name="customerDetailsControl"
             Grid.Row="1"
-            Grid.Column="1" />
+            Grid.Column="1"
+            Customer="{Binding ElementName=customerListView, Path=SelectedItem, Mode=OneWay}" />
 
     </Grid>
 </Page>

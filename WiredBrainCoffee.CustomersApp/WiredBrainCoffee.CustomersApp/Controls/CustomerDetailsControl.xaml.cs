@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Markup;
 using WiredBrainCoffee.CustomersApp.Model;
@@ -8,7 +9,9 @@ namespace WiredBrainCoffee.CustomersApp.Controls
     [ContentProperty(Name = nameof(Customer))]
     public sealed partial class CustomerDetailsControl : UserControl
     {
-        private Customer _customer;
+        public static readonly DependencyProperty CustomerProperty =
+            DependencyProperty.Register("Customer", typeof(Customer), typeof(CustomerDetailsControl),
+                new PropertyMetadata(null, CustomerChangedCallback));
 
         public CustomerDetailsControl()
         {
@@ -17,13 +20,18 @@ namespace WiredBrainCoffee.CustomersApp.Controls
 
         public Customer Customer
         {
-            get { return _customer; }
-            set
+            get { return (Customer)GetValue(CustomerProperty); }
+            set { SetValue(CustomerProperty, value); }
+        }
+
+        private static void CustomerChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if(d is CustomerDetailsControl customerDetailsControl)
             {
-                _customer = value;
-                txtFirstname.Text = _customer?.Firstname ?? "";
-                txtLastname.Text = _customer?.Lastname ?? "";
-                chkIsDeveloper.IsChecked = _customer?.IsDeveloper ?? false;
+                var customer = e.NewValue as Customer;
+                customerDetailsControl.txtFirstname.Text = customer?.Firstname ?? "";
+                customerDetailsControl.txtLastname.Text = customer?.Lastname ?? "";
+                customerDetailsControl.chkIsDeveloper.IsChecked = customer?.IsDeveloper ?? false;
             }
         }
 
