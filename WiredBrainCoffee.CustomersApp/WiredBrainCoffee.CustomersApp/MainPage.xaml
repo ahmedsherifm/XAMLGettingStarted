@@ -95,9 +95,17 @@
 
             <ListView
                 Grid.Row="1"
-                DisplayMemberPath="Firstname"
                 ItemsSource="{Binding Customers, Mode=OneWay}"
-                SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" />
+                SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontWeight="Bold" Text="{Binding Firstname}" />
+                            <TextBlock Margin="5,0,0,0" Text="{Binding Lastname}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
 
         <!--  Customer Details  -->
