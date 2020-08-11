@@ -52,5 +52,22 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         {
             await _customerDataProvider.SaveCustomersAsync(Customers);
         }
+
+        public void AddCustomer()
+        {
+            var customer = new Customer { Firstname = "New" };
+            Customers.Add(customer);
+            SelectedCustomer = customer;
+        }
+
+        public void DeleteCustomer()
+        {
+            var customer = SelectedCustomer;
+            if (customer != null)
+            {
+                Customers.Remove(customer);
+                SelectedCustomer = null;
+            }
+        }
     }
 }

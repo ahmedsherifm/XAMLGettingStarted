@@ -38,22 +38,6 @@ namespace WiredBrainCoffee.CustomersApp
             deferral.Complete();
         }
 
-        private void ButtonAddCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            var customer = new Customer { Firstname = "New" };
-            ViewModel.Customers.Add(customer);
-            ViewModel.SelectedCustomer = customer;
-        }
-
-        private void ButtonDeleteCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            var customer = ViewModel.SelectedCustomer;
-            if(customer != null)
-            {
-                ViewModel.Customers.Remove(customer);
-            }
-        }
-
         private void ButtonMove_Click(object sender, RoutedEventArgs e)
         {
             var column = Grid.GetColumn(customerListGrid);
