@@ -10,16 +10,19 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
-        <Style x:Key="myTextBoxStyle" TargetType="TextBox">
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="CornerRadius" Value="5" />
+        <Style
+            x:Key="myCustomTextBoxStyle"
+            BasedOn="{StaticResource myTextBoxStyle}"
+            TargetType="TextBox">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="CornerRadius" Value="0" />
         </Style>
     </UserControl.Resources>
 
     <StackPanel>
         <TextBox
             Header="Firstname"
-            Style="{StaticResource myTextBoxStyle}"
+            Style="{StaticResource myCustomTextBoxStyle}"
             Text="{x:Bind Customer.Firstname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Header="Lastname"
