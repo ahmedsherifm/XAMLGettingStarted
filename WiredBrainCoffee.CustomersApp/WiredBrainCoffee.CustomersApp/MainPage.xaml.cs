@@ -43,12 +43,12 @@ namespace WiredBrainCoffee.CustomersApp
         {
             var customer = new Customer { Firstname = "New" };
             ViewModel.Customers.Add(customer);
-            customerListView.SelectedItem = customer;
+            ViewModel.SelectedCustomer = customer;
         }
 
         private void ButtonDeleteCustomer_Click(object sender, RoutedEventArgs e)
         {
-            var customer = customerListView.SelectedItem as Customer;
+            var customer = ViewModel.SelectedCustomer;
             if(customer != null)
             {
                 ViewModel.Customers.Remove(customer);

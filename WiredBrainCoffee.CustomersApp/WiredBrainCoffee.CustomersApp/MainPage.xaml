@@ -94,17 +94,17 @@
             </StackPanel>
 
             <ListView
-                x:Name="customerListView"
                 Grid.Row="1"
                 DisplayMemberPath="Firstname"
-                ItemsSource="{Binding Customers, Mode=OneWay}" />
+                ItemsSource="{Binding Customers, Mode=OneWay}"
+                SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" />
         </Grid>
 
         <!--  Customer Details  -->
         <controls:CustomerDetailsControl
             Grid.Row="1"
             Grid.Column="1"
-            Customer="{Binding ElementName=customerListView, Path=SelectedItem, Mode=OneWay}" />
+            Customer="{Binding SelectedCustomer, Mode=OneWay}" />
 
     </Grid>
 </Page>
