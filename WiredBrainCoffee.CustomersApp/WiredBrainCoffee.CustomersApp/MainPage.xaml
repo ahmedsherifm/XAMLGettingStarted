@@ -46,6 +46,14 @@
                 Text="Version 1.0" />
         </StackPanel>
 
+        <Button
+            Grid.ColumnSpan="3"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Click="ButtonToggleTheme_Click"
+            Content="Toggle Theme" />
+
         <!--  Customers List  -->
         <Grid
             x:Name="customerListGrid"

@@ -15,9 +15,12 @@ namespace WiredBrainCoffee.CustomersApp
         public MainPage()
         {
             this.InitializeComponent();
-            this.Loaded += MainPage_Loaded;
+            Loaded += MainPage_Loaded;
             App.Current.Suspending += Current_Suspending;
             _customerDataProvider = new CustomerDataProvider();
+            RequestedTheme = App.Current.RequestedTheme == ApplicationTheme.Dark
+                ? ElementTheme.Dark
+                : ElementTheme.Light;
         }
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -67,6 +70,11 @@ namespace WiredBrainCoffee.CustomersApp
         {
             var customer = customerListView.SelectedItem as Customer;
             customerDetailsControl.Customer = customer;
+        }
+
+        private void ButtonToggleTheme_Click(object sender, RoutedEventArgs e)
+        {
+            RequestedTheme = RequestedTheme == ElementTheme.Dark ? ElementTheme.Light : ElementTheme.Dark;
         }
     }
 }
