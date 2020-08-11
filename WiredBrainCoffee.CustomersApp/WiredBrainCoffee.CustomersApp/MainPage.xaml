@@ -9,6 +9,7 @@
     xmlns:model="using:WiredBrainCoffee.CustomersApp.Model"
     d:DesignHeight="400"
     d:DesignWidth="600"
+    x:DefaultBindMode="OneWay"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
@@ -95,8 +96,8 @@
 
             <ListView
                 Grid.Row="1"
-                ItemsSource="{Binding Customers, Mode=OneWay}"
-                SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}">
+                ItemsSource="{x:Bind ViewModel.Customers, Mode=OneWay}"
+                SelectedItem="{x:Bind ViewModel.SelectedCustomer, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -112,7 +113,7 @@
         <controls:CustomerDetailsControl
             Grid.Row="1"
             Grid.Column="1"
-            Customer="{Binding SelectedCustomer, Mode=OneWay}" />
+            Customer="{x:Bind ViewModel.SelectedCustomer, Mode=OneWay}" />
 
     </Grid>
 </Page>

@@ -17,7 +17,6 @@ namespace WiredBrainCoffee.CustomersApp
         {
             this.InitializeComponent();
             ViewModel = new MainViewModel(new CustomerDataProvider());
-            DataContext = ViewModel;
 
             Loaded += MainPage_Loaded;
             App.Current.Suspending += Current_Suspending;

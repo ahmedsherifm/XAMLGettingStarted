@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:WiredBrainCoffee.CustomersApp.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    x:Name="root"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -14,15 +13,15 @@
         <TextBox
             Margin="10"
             Header="Firstname"
-            Text="{Binding ElementName=root, Path=Customer.Firstname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{x:Bind Customer.Firstname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Margin="10"
             Header="Lastname"
-            Text="{Binding ElementName=root, Path=Customer.Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{x:Bind Customer.Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <CheckBox
             Margin="10"
             Content="Is Developer"
-            IsChecked="{Binding ElementName=root, Path=Customer.IsDeveloper, Mode=TwoWay}" />
+            IsChecked="{x:Bind Customer.IsDeveloper, Mode=TwoWay}" />
     </StackPanel>
 
 </UserControl>
