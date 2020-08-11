@@ -50,7 +50,7 @@
         <Grid
             x:Name="customerListGrid"
             Grid.Row="1"
-            Background="{StaticResource customerListBackgroundBrush}">
+            Background="{ThemeResource customerListBackgroundBrush}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
