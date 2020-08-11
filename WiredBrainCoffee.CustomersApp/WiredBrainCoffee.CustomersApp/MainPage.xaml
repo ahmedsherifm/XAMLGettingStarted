@@ -103,6 +103,11 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontWeight="Bold" Text="{x:Bind Firstname}" />
                             <TextBlock Margin="5,0,0,0" Text="{x:Bind Lastname}" />
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                Opacity="0.5"
+                                Text="(Developer)"
+                                Visibility="{x:Bind IsDeveloper}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -113,7 +118,8 @@
         <controls:CustomerDetailsControl
             Grid.Row="1"
             Grid.Column="1"
-            Customer="{x:Bind ViewModel.SelectedCustomer, Mode=OneWay}" />
+            Customer="{x:Bind ViewModel.SelectedCustomer}"
+            Visibility="{x:Bind ViewModel.IsCustomerSelected}" />
 
     </Grid>
 </Page>
