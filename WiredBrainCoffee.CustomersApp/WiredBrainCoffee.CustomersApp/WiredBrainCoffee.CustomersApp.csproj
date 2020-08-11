@@ -123,6 +123,7 @@
       <DependentUpon>CustomerDetailsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataProvider\CustomerDataProvider.cs" />
+    <Compile Include="DataProvider\ICustomerDataProvider.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -130,6 +131,7 @@
     <Compile Include="Base\Observable.cs" />
     <Compile Include="Model\CustomerConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

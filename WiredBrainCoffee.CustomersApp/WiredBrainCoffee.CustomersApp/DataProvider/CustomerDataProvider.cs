@@ -10,7 +10,7 @@ using WiredBrainCoffee.CustomersApp.Model;
 
 namespace WiredBrainCoffee.CustomersApp.DataProvider
 {
-    public class CustomerDataProvider
+    public class CustomerDataProvider : ICustomerDataProvider
     {
         private static readonly string _customerFileName = "customers.json";
         private static readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
@@ -35,9 +35,9 @@ namespace WiredBrainCoffee.CustomersApp.DataProvider
             }
             else
             {
-                using(var stream = await storageFile.OpenAsync(FileAccessMode.Read))
+                using (var stream = await storageFile.OpenAsync(FileAccessMode.Read))
                 {
-                    using(var dataReader = new DataReader(stream))
+                    using (var dataReader = new DataReader(stream))
                     {
                         await dataReader.LoadAsync((uint)stream.Size);
                         var json = dataReader.ReadString((uint)stream.Size);
@@ -53,9 +53,9 @@ namespace WiredBrainCoffee.CustomersApp.DataProvider
         {
             var storageFile = await _localFolder.CreateFileAsync(_customerFileName, CreationCollisionOption.ReplaceExisting);
 
-            using(var stream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
+            using (var stream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
             {
-                using(var dataWriter = new DataWriter(stream))
+                using (var dataWriter = new DataWriter(stream))
                 {
                     var json = JsonConvert.SerializeObject(customers, Formatting.Indented);
                     dataWriter.WriteString(json);
